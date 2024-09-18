@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='sign.css')}}">
+{% endblock %}
+
+
+{% block body %}
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="error-cont">
+      <div class="{{category}}">{{message}}</div>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %} 
+
+<div class="full_wrap">
+  <div class="form_view">
+    <form method="post" enctype="multipart/form-data">
+      <input type="text" name="username" placeholder="Username">
+      <input type="text" name="first_name" placeholder="First Name">
+      <input type="text" name="last_name" placeholder="Last Name">
+      <input type="text" name="email" placeholder="Email">
+      <input type="text" name="password" placeholder="Password">
+      <div id="fileinput">
+      <input id="profile" type="file" name="profile_pic" accept=".png,.jpg,.jpeg">
+      <label for="profile"><span id="attach-text"> Upload your pic: </span><img id="attachment" src="{{url_for('static',filename='attachment.png')}}"></lable>
+      </div>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+
+

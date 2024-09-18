@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='create.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<div class="textbox">
+  <textarea id="textContent" placeholder="Enter your blog"></textarea>
+  <button onclick="send()">Post</button>
+</div>
+
+<script>
+function send(){
+  console.log("something")
+  let textarea = document.getElementById('textContent')
+  let content = textarea.value
+  data = {'content': content}
+  console.log(data)
+  fetch("http://127.0.0.1:5000/create",{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(data)
+  })
+  textarea.value = ""
+}
+</script>
+
+{% endblock %}

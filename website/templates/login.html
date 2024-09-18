@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+{% endblock %}
+
+
+{% block body %}
+
+ {% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="error-cont">
+      <div class="{{category}}">{{message}}</div>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %} 
+
+<div class="full_wrap">
+  <div class="form_view">
+    <form method="post">
+      <input type="text" name="username" placeholder="username">
+      <input type="text" name="password" placeholder="password">
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <div class="form_end">
+    <p> <a href="/sign">Sign Up</a> instead? </p>
+  </div>
+</div>
+{% endblock %}
+
+
+

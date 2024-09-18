@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+<title> View - Blog </title>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
+{% endblock %}
+
+
+{% block body %}
+
+{% if not loggedin %}
+
+<div class="navbar">
+  <a href='/login'>Login</a>
+  <a href='/sign'>Sign-up</a>
+</div>
+
+{% else %}
+<div class="navbar">
+  <a href='/create'>Create Post</a>
+  <a href='/logout'>Logout</a>
+  <a href='/profile/{{current_user.id}}'>Profile</a>
+</div>
+
+{% endif %}
+
+
+<div class="post-wrapper">
+
+{% for blog_post in blog_posts %}
+
+  <div class="post-full">
+    <div class="author">
+      <p>{{blog_post.author.username}}</p>
+    </div>
+    <div class="post">
+      <p>{{blog_post.content}}</p>
+    </div>
+  </div>
+
+{% endfor %}
+
+</div>
+
+<script>
+</script>
+
+
+{% endblock %}
+

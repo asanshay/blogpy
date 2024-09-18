@@ -1,0 +1,81 @@
+/* color used #1CAC78; #018749; */
+html {
+  background: #1e1e22;
+}
+body {
+  font-family: Poppins, sans-serif;
+}
+
+.nav-wrapper {
+  position: relative
+}
+.navbar {
+  margin:20px;
+  position: absolute;
+  right: 10px;
+}
+
+.navbar a {
+  text-decoration:none;
+  color:white;
+  padding: 10px;
+  border-radius: 7px;
+  curser: pointer;
+}
+
+.navbar a:hover {
+  color: #d9bbd9;
+}
+
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+}
+
+.post-full {
+  display:flex;
+  flex-direction:column;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  min-width: 400px;
+  min-height:450px;
+  width: 35vw;
+  height: 45vh;
+  color:white;
+}
+
+.author {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  background-color: #2C2D2D;
+}
+
+.author button {
+  background-color: transparent;
+  color: red;
+  border: none;
+  font-size: 20px;
+}
+
+.author button:hover {
+  cursor: pointer;
+}
+
+.post {
+  height:90%;
+  border-radius: 10px;
+  background-color: #2C2D2D;
+  padding-left: 20px;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-size:1.1rem;
+}
+
+

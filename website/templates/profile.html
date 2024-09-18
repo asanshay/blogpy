@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='profile.css')}}">
+{% endblock %}
+
+{% block body %}
+
+<div class="full_page">
+
+  <div class="left-component">
+
+    <div class="image-wrapper">
+      <img src="{{url_for('view.send_images',filename=picture)}}">
+    </div>
+    <div class="text-wrapper">
+      <p>{{author_name}}</p>
+    {% if picture == "profile.png" %}
+      <div class="upload-file">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input id="upload" type="file" name="profile_pic">
+          <label for="upload"> <img id="attachment" src="{{url_for('static',filename='attachment.png')}}"> </label>
+          <button type="submit"> Upload file </button>
+        </form>
+      </div>
+    {% endif %}
+    </div>
+
+  </div>
+
+  <div class="right-component">
+
+    <div class="heading">
+      <p>Post:</p>
+    </div>
+
+    {% if blogs %}
+    {% for blog in blogs %}
+
+    <div class="post-full" oncontextmenu="myfunc({{blog.id}})">
+      <div class="post">
+        <p>{{blog.content}}</p>
+      </div>
+    </div>
+
+    {% endfor %}
+    {% else %}
+    <div class="not_found">
+      <p> No posts found </p>
+    </div>
+    {% endif %}
+
+  </div>
+
+</div>
+
+<script>
+  function myfunc(e) {
+    e.preventDefault();
+  }
+</script>
+{% endblock %}
